@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillTrove - Login & Signup</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4cc9f0;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --danger: #f44336;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      background: #fff;
+      margin: 42px auto 0 auto;
+      border-radius: 13px;
+      box-shadow: 0 8px 32px #7e8ca040;
+      padding: 32px 36px 28px 36px;
+      position: relative;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .brand h1 {
+      font-size: 1.55rem;
+      margin: 0 0 6px 0;
+      color: var(--primary);
+    }
+
+    .brand p {
+      color: var(--secondary);
+      margin-top: 6px;
+      font-size: 1rem;
+    }
+
+    .description {
+      color: #777;
+      font-size: 0.98rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .tab-btn {
+      padding: 7px 0;
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+      color: #6c7896;
+      font-weight: bold;
+      background: #f4f6fb;
+      border-radius: 6px 6px 0 0;
+      border: none;
+      outline: none;
+      font-size: 1.06em;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .tabs {
+      background: #f4f6fa;
+      padding: 26px 18px 18px 18px;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 4px 18px #b7bedb22;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #48548b;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 1rem;
+      border: 1px solid #d5dbe7;
+      border-radius: 5px;
+      background: #f7f9fe;
+      transition: border 0.2s;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 16px;
+      top: 38px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #999;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .eye-icon:hover {
+      color: #222;
+    }
+
+    input[type="password"] {
+      padding-right: 2.5em;
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .form-options label,
+    .form-options a {
+      font-size: 0.95em;
+    }
+
+    .form-options a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .form-options a:hover {
+      text-decoration: underline;
+    }
+
+    .btn, .btn-google {
+      display: block;
+      width: 100%;
+      padding: 10px 0;
+      font-size: 1.07rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: box-shadow 0.15s, background 0.18s;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--secondary) 70%);
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(67, 97, 238, 0.4);
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, var(--secondary) 80%, var(--primary));
+    }
+
+    .btn-google {
+      background: #fff;
+      border: 1px solid #e3e8fb;
+      color: #222;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 6px #c2d2ff26;
+    }
+
+    .btn-google:hover {
+      border-color: var(--primary);
+      background: #f8faff;
+    }
+
+    .google-icon {
+      width: 22px;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 21px 5vw;
+        max-width: 98vw;
+      }
+
+      .tabs {
+        padding: 15px 3vw 8px 3vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <div class="logo">🚀</div>
+      <h1>Welcome to SkillTrove</h1>
+      <p class="description">Gamified Learning for Placement Success</p>
+    </div>
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="login">Login</button>
+      <button class="tab-btn" data-tab="signup">Signup</button>
+    </div>
+
+    <div class="tabs">
+      <!-- Login Tab -->
+      <div class="tab-panel login-content active">
+        <form>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="login-password" required>
+            <span class="eye-icon" data-target="login-password">&#128065;</span>
+          </div>
+          <div class="form-options">
+            <label><input type="checkbox"> Remember Me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn-google"><img src="https://img.icons8.com/color/48/000000/google-logo.png" class="google-icon">Login with Google</button>
+        </form>
+      </div>
+
+      <!-- Signup Tab -->
+      <div class="tab-panel signup-content">
+        <form>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="signup-name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="signup-password" required>
+            <span class="eye-icon" data-target="signup-password">&#128065;</span>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="signup-confirm-password" required>
+            <span class="eye-icon" data-target="signup-confirm-password">&#128065;</span>
+          </div>
+          <button type="submit" class="btn">Signup</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        tabPanels.forEach(panel => panel.classList.remove('active'));
+        document.querySelector(`.${this.dataset.tab}-content`).classList.add('active');
+      });
+    });
+
+    // Show/hide passwords
+    document.querySelectorAll('.eye-icon').forEach(function (icon) {
+      icon.addEventListener('click', function () {
+        const targetId = icon.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.innerHTML = '&#128064;';
+        } else {
+          input.type = 'password';
+          icon.innerHTML = '&#128065;';
+        }
+      });
+    });
+
+    // Signup logic
+    document.querySelector('.signup-content form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      localStorage.setItem('skilltrove_user', JSON.stringify({ name, email, password }));
+      alert("Signup successful! You can now log in.");
+      document.querySelector('[data-tab="login"]').click();
+    });
+
+    // Login logic
+    document.querySelector('.login-content form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const user = JSON.parse(localStorage.getItem('skilltrove_user'));
+
+      if (user && user.email === email && user.password === password) {
+        alert(`Welcome back, ${user.name}!`);
+        // Redirect or continue logic can go here
+      } else {
+        alert("Invalid credentials.");
+      }
+    });
+  </script>
+</body>
+</html>

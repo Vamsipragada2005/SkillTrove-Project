@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillTrove Community Section</title>
+  <link rel="stylesheet" href="./community.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" />
+  <style>
+    :root {
+      --primary: #4361ee;                           
+      --secondary: #3f37c9;
+      --accent: #4cc9f0;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --danger: #f44336;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+    }
+
+    .container {
+      max-width: 1000px;
+      background: #fff;
+      margin: 42px auto;
+      border-radius: 13px;
+      box-shadow: 0 8px 32px #7e8ca040;
+      padding: 32px 36px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .section-desc {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px;
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    .community-main {
+      display: flex;
+      gap: 2em;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .col {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    .card-style {
+      background: var(--light-gray);
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-style:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .join-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .join-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .join-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .discord {
+      background-color: #5865f2;
+    }
+
+    .whatsapp {
+      background-color: #25d366;
+    }
+
+    .telegram {
+      background-color: #0088cc;
+    }
+
+    .newsletter-form,
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    input,
+    textarea,
+    button {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary);
+    }
+
+    .divider {
+      margin: 20px 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .info-block a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .links-group {
+      margin-top: 10px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-icon img {
+      width: 26px;
+      height: 26px;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+
+    .privacy-note {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1 class="section-title">Join the SkillTrove Community</h1>
+    <p class="section-desc">Become a part of our learning tribe! Connect, grow, and share with motivated learners.</p>
+
+    <div class="community-main">
+      <div class="col">
+        <div class="card-style">
+          <h3>Connect with Us</h3>
+          <div class="join-btn-group">
+            <a class="join-btn discord" href="#" target="_blank" rel="noopener">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Icon" /> Discord
+            </a>
+            <a class="join-btn whatsapp" href="#" target="_blank" rel="noopener">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp Icon" /> WhatsApp
+            </a>
+            <a class="join-btn telegram" href="#" target="_blank" rel="noopener">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg" alt="Telegram Icon" /> Telegram
+            </a>
+          </div>
+
+          <hr class="divider" />
+
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="newsletter-email">Subscribe to our newsletter:</label>
+            <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Your email address" required autocomplete="off" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card-style">
+          <h3>Contact Us</h3>
+          <form class="contact-form" action="#" method="post" novalidate>
+            <input type="text" name="name" placeholder="Name" required autocomplete="off" />
+            <input type="email" name="email" placeholder="Email" required autocomplete="off" />
+            <textarea name="message" placeholder="🗘️ Message" required></textarea>
+            <button type="submit">Send Message</button>
+            <p class="privacy-note">🔐 We won’t share your email with anyone.</p>
+          </form>
+        </div>
+
+        <div class="card-style" style="margin-top: 2em;">
+          <div class="info-block">
+            <strong>SkillTrove Team</strong><br />
+            <div style="margin: 0.7em 0 0.65em 0;">
+              Email:
+              <a href="mailto:skilltrove.team@gmail.com">skilltrove.team@gmail.com</a>
+            </div>
+            <div class="links-group">
+              <a class="social-icon" title="LinkedIn" href="#" target="_blank" rel="noopener">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+              </a>
+              <a class="social-icon" title="Instagram" href="#" target="_blank" rel="noopener">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" />
+              </a>
+              <a class="social-icon" title="GitHub" href="#" target="_blank" rel="noopener">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
